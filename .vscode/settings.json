@@ -1,0 +1,6 @@
+{
+    "dbt.dbtPath": "C:\\Users\\User\\dbt_projects\\dbt_workspace_v2\\dbt_venv\\Scripts\\dbt.exe",
+    "python-envs.defaultEnvManager": "ms-python.python:system",
+    "python-envs.pythonProjects": [],
+    "python.defaultInterpreterPath": "C:\\Users\\User\\dbt_projects\\dbt_workspace_v2\\dbt_venv\\Scripts\\python.exe"
+}

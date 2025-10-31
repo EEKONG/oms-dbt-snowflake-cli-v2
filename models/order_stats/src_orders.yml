@@ -1,0 +1,24 @@
+sources:
+
+  - name: orderlanding
+    description: The primary source for OMS analytics
+    database: SLEEKMART_OMS
+    schema: L1_LANDING
+  
+    tables:
+      - name: orders
+        identifier: orders
+        columns:
+          - name: OrderID
+            tests:
+              - not_null
+      
+      - name: orderitems
+        identifier: orderitems
+        columns:
+          - name: orderID
+            tests:
+              - relationships:
+                  arguments:
+                    to: ref('orders')
+                    field: OrderID

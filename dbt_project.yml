@@ -32,5 +32,28 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   oms_dbt_snowflake_proj_v2:
     # Config indicated by + and applies to all files under models/example/
-    example:
+    
+    order_stats:
       +materialized: view
+
+      orders_stg:
+        +materialized: view
+        +schema: L2_STAGING
+    
+      orderitems_stg:
+        +materialized: view
+        +schema: L2_STAGING
+    
+      order_facts:
+        +materialized: table
+        +schema: L3_CONSUMPTION_MART
+
+    employee_stats:
+      +materialized: view
+      
+      employees_stg:
+        +schema: L2_STAGING
+      
+      emp_performance:
+        +materialized: table
+        +schema: L3_CONSUMPTION_MART

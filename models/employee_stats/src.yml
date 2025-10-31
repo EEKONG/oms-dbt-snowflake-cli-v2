@@ -1,0 +1,14 @@
+sources:
+
+  - name: employeelanding
+    description: The primary source for OMS analytics
+    database: SLEEKMART_OMS
+    schema: L1_LANDING
+
+    tables:
+      - name: employees
+        identifier: employees
+        columns:
+          - name: employeeID
+            tests:
+              - not_null
