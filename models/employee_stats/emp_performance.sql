@@ -1,14 +1,14 @@
 SELECT
-    EMP.EmployeeID,
-    EMP.FullName,
-    SUM(OrdF.OrderCount) AS OrderCount,
-    SUM(OrdF.TotalRevenue) AS TotalRevenue
+    Emp.EmployeeID,
+    Emp.FullName,
+    COUNT(DISTINCT Ordf.OrderID) AS TotalOrders,
+    SUM(Ordf.TotalRevenue) AS TotalRevenue
 FROM 
-    {{ ref('employees_stg') }} EMP
-JOIN
-    {{ ref('order_facts') }} OrdF
+    {{ ref('employees_stg') }} Emp
+LEFT JOIN
+    {{ ref('order_facts') }} Ordf
 ON
-    EMP.EmployeeID = OrdF.EmployeeID
+    Emp.EmployeeID = Ordf.EmployeeID
 GROUP BY
-    EMP.EmployeeID,
-    EMP.FullName
+    Emp.EmployeeID,
+    Emp.FullName

@@ -20,5 +20,5 @@ sources:
             tests:
               - relationships:
                   arguments:
-                    to: ref('orders')
+                    to: source('orderlanding','orders')
                     field: OrderID
