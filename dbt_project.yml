@@ -33,15 +33,28 @@ models:
   oms_dbt_snowflake_proj_v2:
     # Config indicated by + and applies to all files under models/example/
     
+    customer_stats:
+      +materialized: view
+      
+      customer_stg:
+        +schema: L2_STAGING
+      
+      customer_revenue:
+        +materialized: table
+        +schema: L3_CONSUMPTION_MART
+      
+      repeat_purchase:
+        +materialized: table
+        +schema: L3_CONSUMPTION_MART
+
+    
     order_stats:
       +materialized: view
 
       orders_stg:
-        +materialized: view
         +schema: L2_STAGING
     
       orderitems_stg:
-        +materialized: view
         +schema: L2_STAGING
     
       order_facts:

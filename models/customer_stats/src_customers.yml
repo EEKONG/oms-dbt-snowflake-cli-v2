@@ -1,0 +1,14 @@
+sources:
+
+  - name: customerslanding
+    database: SLEEKMART_OMS
+    schema: L1_LANDING
+
+    tables:
+      - name: customers
+        description: primary table for customers
+        identifier: customers
+        columns:
+          - name: customerID
+            tests:
+              - not_null 
