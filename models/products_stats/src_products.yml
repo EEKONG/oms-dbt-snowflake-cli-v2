@@ -1,0 +1,14 @@
+sources:
+
+  - name: productslanding
+    database: SLEEKMART_OMS
+    schema: L1_LANDING
+
+    tables:
+      - name: products
+        description: primary table for products
+        identifier: products
+        columns:
+          - name: ProductID
+            tests:
+              - not_null 
