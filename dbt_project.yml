@@ -70,3 +70,13 @@ models:
       emp_performance:
         +materialized: table
         +schema: L3_CONSUMPTION_MART
+
+    products_stats:
+      +materialized: view
+      
+      products_stg:
+        +schema: L2_STAGING
+      
+      revenue_by_product:
+        +materialized: table
+        +schema: L3_CONSUMPTION_MART
