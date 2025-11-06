@@ -1,0 +1,40 @@
+models:
+  - name: customer_stg
+    description: Staged customer data from order management system (OMS), with minor row-level transformations.  
+    columns:
+      - name: Email
+        description: Customer's Primay Email address for promotions and offers.      
+        tests:
+          - dbt_utils.not_empty_string
+      
+  - name: orders_stg
+    description: Staged orders data from order management system (oms), with minor row-level transformations.  
+    columns:
+      - name: OrderID
+        description: The primary key for orders_stg table.      
+        tests:
+          - unique
+          - not_null
+      - name: StatusCode
+        description: "{{ doc('StatusCode') }}"
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['01', '02', '03']
+
+
+  - name: orderitems_stg
+    description: Staged order items data from order management system (oms), with minor row-level transformations.   
+    columns:
+      - name: OrderID
+        tests:
+          - relationships:
+              arguments:
+                to: ref('orders_stg')
+                field: OrderID
+  
+  - name: orderitems_uniq
+    tests:
+      - dbt_expectations.expect_table_row_count_to_equal_other_table:
+          arguments:
+            compare_model: ref('orders_stg')
