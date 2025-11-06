@@ -60,6 +60,9 @@ models:
       order_facts:
         +materialized: table
         +schema: L3_CONSUMPTION_MART
+      
+      orderitems_uniq:
+        +schema: L2_STAGING
 
     employee_stats:
       +materialized: view
