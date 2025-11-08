@@ -1,3 +1,34 @@
+### dbt Retail Analytics Project
+This dbt project models a retail / commerce dataset and builds curated stats marts for customers, employees, orders, and products.
+
+### Tech Stack
+dbt (core)
+Snowflake (warehouse)
+SQL
+
+Project Structure.
+├── models/
+│   ├── customer_stats/
+│   ├── employee_stats/
+│   ├── order_stats/
+│   └── products_stats/
+├── macros/
+├── analyses/
+└── README.md
+
+🚀 Getting Started
+prerequisites
+python 3.10
+dbt-core installed
+warehouse connection configured in profiles.yml
+
+run steps
+dbt deps
+dbt seed
+dbt run
+dbt test
+
+
 Welcome to your new dbt project!
 
 ### Using the starter project
